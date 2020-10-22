@@ -1,0 +1,46 @@
+# curl http://127.0.0.1:5000/movies
+GET http://127.0.0.1:5000/movies
+
+###
+
+# curl http://127.0.0.1:5000/movies/2 -X PATCH -H "Content-type: application/json" -d '{"title": "Harry Potter"}'
+PATCH http://127.0.0.1:5000/movies/5
+Content-Type: application/json
+
+{"title": "Harry Potter"}
+
+###
+# curl -X POST http://localhost:5000/questions -H "Content-Type: application/json"
+#      -d '{ "id": 2, "genre": "Horror", "release_date": "2021.11.11", "title": "Hobbit"}'
+POST http://127.0.0.1:5000/movies
+Content-Type: application/json
+
+{"title": "Hobbit", "genre": "Horror", "release_date": "2021.11.11"}
+###
+DELETE http://127.0.0.1:5000/movies/3
+Content-Type: application/json
+###
+
+POST http://127.0.0.1:5000/actors
+Content-Type: application/json
+
+{"name": "Johnny Depp", "age": "48", "role": "Captain", "gender": "Male"}
+###
+DELETE http://127.0.0.1:5000/actors/4
+Content-Type: application/json
+###
+PATCH http://127.0.0.1:5000/actors/2
+Content-Type: application/json
+
+{"name": "Chris Hemsworth"}
+###
+POST http://127.0.0.1:5000/actors
+Content-Type: application/json
+
+{"name": "Thor Odinson", "age": "26", "role": "Thor", "gender": "Male" }
+###
+
+https://capstone-elbek.us.auth0.com/authorize?audience=casting&response_type=token&client_id=j0QNyZzPW9CVn678VIVEByYGGe7DThOq&redirect_uri=http://127.0.0.1:5000/movies
+
+
+
