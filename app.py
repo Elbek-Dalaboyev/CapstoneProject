@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
 
-from models import setup_db, db_create_all, Movies, Actors
+from models import setup_db, Movies, Actors
 from auth import requires_auth
 
 movie_page = 5
@@ -11,7 +11,6 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app)
 
-    db_create_all()
 
     def paginate_movie(request, selection):
         request = request.args.get('page', 1, type=int)
