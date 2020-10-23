@@ -11,8 +11,6 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app)
 
-    db_create_all()
-
     def paginate_movie(request, selection):
         request = request.args.get('page', 1, type=int)
         start = (request - 1) * movie_page
