@@ -2,9 +2,11 @@ import os
 from sqlalchemy import Column, String, Boolean, Integer, DateTime, ForeignKey
 from flask_sqlalchemy import SQLAlchemy
 
-database_filename = "database/database.db"
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
+DB_HOST = os.getenv('DB_HOST', 'localhost:5432')
+DB_USER = os.getenv('DB_USER', 'postgres')
+DB_PASSWORD = os.getenv('DB_PASSWORD', '123')
+DB_NAME = os.getenv('DB_NAME', 'Agency')
+database_path = 'postgresql://{}:{}@{}/{}'.format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
 
 db = SQLAlchemy()
 
@@ -13,9 +15,6 @@ def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-
-def db_create_all():
-    db.create_all()
 
 class Actors(db.Model):
     __tablename__ = 'Actors'
