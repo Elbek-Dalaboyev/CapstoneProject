@@ -1,11 +1,14 @@
 # Capstone Project
 #### Welcome to our Capstone Api Project
 
-This program will run in localhost:5000
-
 ### Getting Started
 You need to install python latest version:
   + [Python 3.8.6](https://www.python.org/) 
+  
+### Heroku 
+    This project will run as a live application at this URL:
+    https://hello-world-elbek.herokuapp.com/movies
+        
   
 #### PIP Dependencies
 
