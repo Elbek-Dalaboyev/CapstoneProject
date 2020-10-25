@@ -5,11 +5,11 @@ from flask_sqlalchemy import SQLAlchemy
 from app import create_app
 from models import setup_db, Actors, Movies
 
-database_filename = "database/database_test.db"
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
-
-
+DB_HOST = os.getenv('DB_HOST', 'localhost:5432')
+DB_USER = os.getenv('DB_USER', 'postgres')
+DB_PASSWORD = os.getenv('DB_PASSWORD', '123')
+DB_NAME = os.getenv('DB_NAME', 'Agency')
+database_path = 'postgresql://{}:{}@{}/{}'.format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
 
 new_movie = {
     'title': 'Sonic: The Hedgehog',
